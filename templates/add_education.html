@@ -1,0 +1,87 @@
+<style>
+/* Page Title */
+.edu-title {
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 25px;
+    color: black;
+    letter-spacing: 1px;
+}
+
+/* Form Container */
+.edu-form {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 14px;
+    background: #1e1e1e;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+    border: 1px solid #333;
+}
+
+/* Form Fields */
+.edu-form p {
+    margin-bottom: 18px;
+}
+
+.edu-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #dcdcdc;
+}
+
+/* Inputs */
+.edu-form input,
+.edu-form textarea,
+.edu-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: #f1f1f1;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.edu-form input:focus,
+.edu-form textarea:focus {
+    border-color: #6a5acd;
+    background: #333;
+    box-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+}
+
+/* Submit Button */
+.edu-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6a5acd, #836fff);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.edu-btn:hover {
+    background: linear-gradient(135deg, #5a4acb, #725fff);
+    transform: translateY(-2px);
+}
+</style>
+
+
+<h1 class="edu-title">ADD EDUCATION</h1>
+
+<form method="POST" autocomplete="off" class="edu-form">
+    {% csrf_token %}
+    <div class="form-wrapper">
+        {{ form.as_p }}
+    </div>
+
+    <button type="submit" class="edu-btn">ADD EDUCATION</button>
+</form>

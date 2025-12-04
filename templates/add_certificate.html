@@ -1,0 +1,95 @@
+<style>
+/* Background Image */
+.cert-container {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: url("https://images.unsplash.com/photo-1521791136064-7986c2920216") no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.cert-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    margin-bottom: 25px;
+}
+
+/* Glass Form */
+.cert-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Form Fields */
+.cert-form p {
+    margin-bottom: 18px;
+}
+
+.cert-form label {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.cert-form input,
+.cert-form textarea,
+.cert-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: rgba(255,255,255,0.75);
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.cert-form input:focus,
+.cert-form textarea:focus {
+    border-color: #6a5acd;
+    box-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+}
+
+/* Button */
+.cert-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #6a5acd, #836fff);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.cert-btn:hover {
+    background: linear-gradient(135deg, #5a4acb, #725fff);
+    transform: translateY(-2px);
+}
+</style>
+
+<div class="cert-container">
+    <h1 class="cert-title">ADD CERTIFICATE</h1>
+
+    <form method="POST" autocomplete="off" class="cert-form">
+        {% csrf_token %}
+        <div class="form-wrapper">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" class="cert-btn">ADD CERTIFICATE</button>
+    </form>
+</div>

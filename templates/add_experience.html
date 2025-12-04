@@ -1,0 +1,135 @@
+<style>
+/* Title */
+.exp-title {
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+/* Form Container */
+.exp-form {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    border: 1px solid #eee;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #34495e;
+}
+
+/* Inputs */
+.exp-form input,
+.exp-form select,
+.exp-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.exp-form input:focus,
+.exp-form select:focus,
+.exp-form textarea:focus {
+    border-color: #3498db;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(52,152,219,0.3);
+}
+
+/* Submit Button */
+.exp-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #6dd5fa);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.exp-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #57c1e8);
+    transform: translateY(-2px);
+}
+</style>
+
+
+<h1 class="exp-title">ADD EXPERIENCE</h1>
+
+<form method="POST" autocomplete="off" class="exp-form">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form.Company.label_tag }}
+        {{ form.Company }}
+    </div>
+
+    <div class="form-group">
+        {{ form.Field.label_tag }}
+        {{ form.Field }}
+    </div>
+
+    <div class="form-group">
+        {{ form.Status.label_tag }}
+        {{ form.Status }}
+    </div>
+
+    <div id="extra-fields">
+        <div class="form-group">
+            {{ form.Duration.label_tag }}
+            {{ form.Duration }}
+        </div>
+
+        <div class="form-group">
+            {{ form.StartDate.label_tag }}
+            {{ form.StartDate }}
+        </div>
+
+        <div class="form-group">
+            {{ form.EndDate.label_tag }}
+            {{ form.EndDate }}
+        </div>
+    </div>
+
+    <button type="submit" class="exp-btn">ADD EXPERIENCE</button>
+</form>
+
+<script>
+    function toggleFields() {
+        const statusSelect = document.getElementById("id_Status");
+        const extraFields = document.getElementById("extra-fields");
+
+        if (statusSelect.value === "working") {
+            extraFields.style.display = "none";
+        } else {
+            extraFields.style.display = "block";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const statusSelect = document.getElementById("id_Status");
+        toggleFields();
+        statusSelect.addEventListener("change", toggleFields);
+    });
+</script>

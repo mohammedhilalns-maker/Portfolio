@@ -1,0 +1,73 @@
+<style>
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.styled-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 600px;
+}
+
+.styled-form p {
+    margin-bottom: 18px;
+}
+
+.styled-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.styled-form input,
+.styled-form textarea,
+.styled-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.submit-btn {
+    background: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+</style>
+<center>
+<h1 class="page-title">ADD ABOUT</h1>
+
+<form method="POST" autocomplete="off" class="styled-form">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+
+    <button type="submit" class="submit-btn">ADD ABOUT</button>
+</form>
+</center>

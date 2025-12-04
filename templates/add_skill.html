@@ -1,0 +1,97 @@
+<style>
+/* Page Background */
+.skill-container {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #eef3ff; /* soft light blue */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.skill-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Form Card */
+.skill-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    border: 1px solid #e0e0e0;
+}
+
+/* Form Fields */
+.skill-form p {
+    margin-bottom: 18px;
+}
+
+.skill-form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #34495e;
+}
+
+.skill-form input,
+.skill-form select,
+.skill-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.skill-form input:focus,
+.skill-form select:focus,
+.skill-form textarea:focus {
+    border-color: #3498db;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(52,152,219,0.3);
+}
+
+/* Submit Button */
+.skill-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #6dd5fa);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.skill-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #57c1e8);
+    transform: translateY(-2px);
+}
+</style>
+
+
+<div class="skill-container">
+    <h1 class="skill-title">ADD SKILL</h1>
+
+    <form method="POST" autocomplete="off" class="skill-form">
+        {% csrf_token %}
+        <div class="form-wrapper">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" class="skill-btn">ADD SKILL</button>
+    </form>
+</div>
