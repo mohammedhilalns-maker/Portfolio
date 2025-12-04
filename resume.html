@@ -1,0 +1,179 @@
+{% include 'header.html' %}
+
+<section id="resume" class="resume section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Resume</h2>
+    {% for ab in abouts %}
+      <p>{{ ab.about }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row align-items-start">
+
+      <!-- Experience Timeline -->
+      <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+        <div class="professional-journey">
+          <div class="section-intro">
+            <div class="icon-wrapper"><i class="bi bi-briefcase-fill"></i></div>
+            <h2>Professional Experience</h2>
+          </div>
+
+          <div class="experience-timeline">
+            {% for exp in experience %}
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="position-meta">
+                  <span class="timeline-year">{{ exp.StartDate }} - {{ exp.EndDate }}</span>
+                </div>
+                <h3>{{ exp.Field }}</h3>
+                <h4>{{ exp.Company }}</h4>
+                <p>Duration: {{ exp.Duration }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Education & Personal Details -->
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+        <div class="education-skills">
+          <div class="section-intro">
+            <div class="icon-wrapper"><i class="bi bi-mortarboard-fill"></i></div>
+            <h2>Education & Qualifications</h2>
+          </div>
+
+          <div class="education-grid">
+            {% for ed in edu %}
+            <div class="education-card" data-aos="zoom-in" data-aos-delay="300">
+              <div class="education-header">
+                <div class="degree-icon"><i class="bi bi-award"></i></div>
+                <div class="degree-info">
+                  <h3>{{ ed.CourseName }}</h3>
+                  <p class="institution">{{ ed.University }} - {{ ed.Institute }}</p>
+                  <span class="graduation-year">{{ ed.StartDate }} - {{ ed.EndDate }}</span>
+                </div>
+              </div>
+              <div class="education-details">
+                <p>Duration: {{ ed.Duration }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+       <!-- Personal Details -->
+<div class="resume-section" data-aos="fade-up" data-aos-delay="400">
+  <div class="section-intro">
+    <div class="icon-wrapper"><i class="bi bi-person-badge-fill"></i></div>
+    <h2>Personal Details</h2>
+    <p>A snapshot of my background and identity.</p>
+  </div>
+
+  {% for pr in person %}
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-flag"></i>
+        <strong>Nationality:</strong> {{ pr.Nationality }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-geo-alt"></i>
+        <strong>State:</strong> {{ pr.State }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-map"></i>
+        <strong>District:</strong> {{ pr.District }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-calendar-event"></i>
+        <strong>DOB:</strong> {{ pr.DOB }}
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-house-door"></i>
+        <strong>Address:</strong> {{ pr.Address }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-heart"></i>
+        <strong>Religion:</strong> {{ pr.Religion }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="detail-card shadow-sm p-3">
+        <i class="bi bi-gender-ambiguous"></i>
+        <strong>Sex:</strong> {{ pr.Sex }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+          <!-- Certificates -->
+<div class="certification-section" data-aos="fade-up" data-aos-delay="400">
+            <h4>Certificates</h4>
+            <div class="certifications">
+              {% for crs in certify %}
+              <div class="cert-item">
+                <i class="bi bi-patch-check"></i>
+                <div class="cert-details">
+                  <span class="cert-name">{{ crs.Course }}</span>
+                  <span class="cert-provider">{{ crs.Defnition }}</span>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+   </div>
+</section>
+<section id="resume" class="resume section">
+
+
+
+          <!-- Languages -->
+ <div class="language-section" data-aos="fade-up" data-aos-delay="500">
+            <h4>Languages</h4>
+            <div class="d-flex flex-wrap gap-2">
+              {% for lng in lan %}
+              <span class="badge bg-success fs-6">{{ lng.language }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="skills-section" data-aos="fade-up" data-aos-delay="600">
+            <h4>Skills</h4>
+            <div class="d-flex flex-wrap gap-2">
+              {% for sk in skil %}
+              <span class="badge bg-primary fs-6">{{ sk.skill }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section><!-- /Resume Section -->
+
+{% include 'footer.html' %}

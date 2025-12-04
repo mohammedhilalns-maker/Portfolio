@@ -1,0 +1,164 @@
+{% include 'header.html' %}
+<style>
+/* Page Wrapper */
+.contact-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Titles */
+.contact-subtitle {
+    font-size: 20px;
+    color: #f7fff5;
+    margin-bottom: 5px;
+}
+
+.contact-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f7fff5;
+    margin-bottom: 25px;
+}
+
+/* Form Box */
+.contact-form {
+    text-decoration: #fff8dc;
+    background: #25303f;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    border: black;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+/* Form Fields */
+.contact-form p {
+    margin-bottom: 18px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #f7fff5;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: black;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(52,152,219,0.3);
+}
+
+/* Button */
+.contact-btn {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: blue;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.contact-btn:hover {
+    background: black;
+}
+</style>
+
+<!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5">
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="bi bi-chat-dots"></i>
+              </div>
+              <div class="info-content">
+                <h4>Let's Connect</h4>
+                <p>We're here to discuss your vision and explore how we can bring it to life together.</p>
+              </div>
+            </div>
+
+            <div class="contact-details">
+
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="detail-content">
+                  <span class="detail-label">Email us</span>
+                  <span class="detail-value">mohammedhilalns@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="bi bi-telephone-outbound"></i>
+                </div>
+                <div class="detail-content">
+                  <span class="detail-label">Call us</span>
+                  <span class="detail-value">+91 9746622695</span>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="detail-content">
+                  <span class="detail-label">Visit us</span>
+                  <span class="detail-value">India, Kerala, Thrissur 679564</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-7">
+            <div class="form-wrapper">
+              <div class="form-header">
+            <div class="contact-container">
+    <h1 class="contact-title">Connect</h1>
+
+    <form method="POST" autocomplete="off" class="contact-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="contact-btn">Send Message</button>
+    </form>
+</div>
+
+    </div>
+        </div>
+      </div>
+
+    </section><!-- /Contact Section -->
+ {% include 'footer.html' %}

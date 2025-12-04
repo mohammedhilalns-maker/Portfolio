@@ -1,0 +1,95 @@
+{% include 'admin_header.html' %}
+<style>
+.contact-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    letter-spacing: 1px;
+}
+
+/* Card Wrapper */
+.table-card {
+    width: 95%;
+    max-width: 1100px;
+    background: black;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Table Styling */
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.contact-table thead tr {
+    background: #3498db;
+    color: black;
+    text-align: left;
+}
+
+.contact-table th,
+.contact-table td {
+    padding: 14px 16px;
+    vertical-align: top;
+}
+
+.contact-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.contact-table tbody tr:nth-child(even) {
+    background: black;
+}
+
+.contact-table tbody tr:hover {
+    background: black;
+    transition: 0.3s;
+}
+
+/* Make long messages wrap nicely */
+.contact-table td {
+    word-wrap: break-word;
+    max-width: 300px;
+}
+</style>
+
+
+<div class="contact-container">
+    <h3 class="contact-title">Contact Messages</h3>
+
+    <div class="table-card">
+        <table class="contact-table">
+            <thead>
+                <tr>
+                    <th>FullName</th>
+                    <th>EmailAddress</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for ct in cnt %}
+                <tr>
+                    <td>{{ ct.FullName }}</td>
+                    <td>{{ ct.Emailaddress }}</td>
+                    <td>{{ ct.Subject }}</td>
+                    <td>{{ ct.Message }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

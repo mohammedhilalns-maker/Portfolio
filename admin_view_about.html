@@ -1,0 +1,100 @@
+{% include 'header.html' %}
+<style>
+.about-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* Card Wrapper */
+.table-card {
+    width: 90%;
+    max-width: 900px;
+    background: black;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Table Styling */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.styled-table thead tr {
+    background: #3498db;
+    color: #fff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 14px 16px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background: #f7faff;
+}
+
+.styled-table tbody tr:hover {
+    background: black;
+    transition: 0.3s;
+}
+
+/* Update Button */
+.update-btn {
+    padding: 8px 14px;
+    background: #2ecc71;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.update-btn:hover {
+    background: #27ae60;
+}
+</style>
+
+<div class="about-container">
+    <h1 class="about-title">About</h1>
+
+    <div class="table-card">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>About</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for ab in abouts %}
+                <tr>
+                    <td>{{ ab.about }}</td>
+                    <td>
+                        <a href="{% url 'update_about' ab.id %}" class="update-btn">Update</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
